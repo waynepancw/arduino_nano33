@@ -1,0 +1,50 @@
+CC     = "C:\Program Files\MATLAB\R2022a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2022a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2022a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2022a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"arduino_imu_pitch_roll_sfun.obj"\
+	"c2_arduino_imu_pitch_roll.obj"\
+	"arduino_imu_pitch_roll_sfun_registry.obj"\
+	"half_type.obj"\
+	"lccstub.obj"\
+	"c_mexapi_version.obj"\
+	"MW_AnalogInput.cpobj"\
+	"ArduinoPinHandleMap.cpobj"\
+	"MW_arduino_digitalio.cpobj"\
+	"MW_arduinoI2C.cpobj"\
+	"MW_PWM.cpobj"\
+	"MW_PWMDriver.obj"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2022a\extern\include"  -I"C:\Program Files\MATLAB\R2022a\simulink\include"  -I"C:\Program Files\MATLAB\R2022a\simulink\include\sf_runtime"  -I"C:\Program Files\MATLAB\R2022a\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2022a\rtw\c\src"  -I"C:\Users\cwpan\Documents\GitHub\arduino_nano33\slprj\_sfprj\arduino_imu_pitch_roll\_self\sfun\src"  -I"C:\Users\cwpan\documents\GitHub\arduino_nano33\slprj\_sfprj\arduino_imu_pitch_roll\_self\sfun\src"  -I"C:\Users\cwpan\documents\GitHub\arduino_nano33"  -I"C:\Program Files\MATLAB\R2022a\sys\lcc64\lcc64\include64"  -I"C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\shared\svd\include"  -I"C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\include" 
+ 
+
+arduino_imu_pitch_roll_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o arduino_imu_pitch_roll_sfun.mexw64 @arduino_imu_pitch_roll_sfun.lmko
+arduino_imu_pitch_roll_sfun.obj :	"C:\Users\cwpan\Documents\GitHub\arduino_nano33\slprj\_sfprj\arduino_imu_pitch_roll\_self\sfun\src\arduino_imu_pitch_roll_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Users\cwpan\Documents\GitHub\arduino_nano33\slprj\_sfprj\arduino_imu_pitch_roll\_self\sfun\src\arduino_imu_pitch_roll_sfun.c"
+c2_arduino_imu_pitch_roll.obj :	"C:\Users\cwpan\Documents\GitHub\arduino_nano33\slprj\_sfprj\arduino_imu_pitch_roll\_self\sfun\src\c2_arduino_imu_pitch_roll.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Users\cwpan\Documents\GitHub\arduino_nano33\slprj\_sfprj\arduino_imu_pitch_roll\_self\sfun\src\c2_arduino_imu_pitch_roll.c"
+arduino_imu_pitch_roll_sfun_registry.obj :	"C:\Users\cwpan\Documents\GitHub\arduino_nano33\slprj\_sfprj\arduino_imu_pitch_roll\_self\sfun\src\arduino_imu_pitch_roll_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Users\cwpan\Documents\GitHub\arduino_nano33\slprj\_sfprj\arduino_imu_pitch_roll\_self\sfun\src\arduino_imu_pitch_roll_sfun_registry.c"
+half_type.obj :	"C:\Users\cwpan\Documents\GitHub\arduino_nano33\slprj\_sfprj\arduino_imu_pitch_roll\_self\sfun\src\half_type.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Users\cwpan\Documents\GitHub\arduino_nano33\slprj\_sfprj\arduino_imu_pitch_roll\_self\sfun\src\half_type.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2022a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2022a\sys\lcc64\lcc64\mex\lccstub.c"
+c_mexapi_version.obj :	"C:\Program Files\MATLAB\R2022a\extern\version\c_mexapi_version.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2022a\extern\version\c_mexapi_version.c"
+MW_AnalogInput.obj :	"C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\MW_AnalogInput.cpp"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\MW_AnalogInput.cpp"
+ArduinoPinHandleMap.obj :	"C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\ArduinoPinHandleMap.cpp"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\ArduinoPinHandleMap.cpp"
+MW_arduino_digitalio.obj :	"C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\MW_arduino_digitalio.cpp"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\MW_arduino_digitalio.cpp"
+MW_arduinoI2C.obj :	"C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\MW_arduinoI2C.cpp"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\MW_arduinoI2C.cpp"
+MW_PWM.obj :	"C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\MW_PWM.cpp"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\MW_PWM.cpp"
+MW_PWMDriver.obj :	"C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\MW_PWMDriver.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\ProgramData\MATLAB\SupportPackages\R2022a\toolbox\target\supportpackages\arduinobase\src\MW_PWMDriver.c"

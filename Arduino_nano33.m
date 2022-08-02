@@ -8,3 +8,7 @@ lsmObj = lsm9ds1(a,"Bus",1)
 acc = readAcceleration(lsmObj)
 angV = readAngularVelocity(lsmObj)
 magF = readMagneticField(lsmObj)
+
+%% analysis imu data
+% open_system('AnalyseIMUData.slx');
+
